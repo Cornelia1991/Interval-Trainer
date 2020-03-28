@@ -9,8 +9,8 @@ const description = document.querySelector('.description');
 const suggestionsUI = document.querySelector('.suggestionsUI');
 const fulldescription = document.createElement('p');
 
-export let allTask = []; //used in submitTask()
-export let setsInputValue; 
+let allTask = []; //used in submitTask()
+let setsInputValue; 
 
 //Load all event listeners
 loadEventListeners();
@@ -109,8 +109,8 @@ function submitTask()
         allTask.push(item);
       }
   });
-
-    //console.log(allTask);
+  return allTask;
+  //console.log(allTask);
 }
 
 //Submit amount of sets
@@ -127,7 +127,7 @@ function setNumber()
   else
   {
     setsInputValue = setsInput.value;
-    submitBtn.href = "workout.html";
+    //submitBtn.href = "workout.html";
   }
   //console.log(setsInput.value);
   //console.log(taskInput.value);
@@ -171,6 +171,3 @@ function addSuggestion(e)
     }
   }
 }
-
-export let test = () => console.log(456);
-test();
