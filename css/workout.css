@@ -35,11 +35,10 @@
   cursor: pointer;
   color:#212121;
 }
-li:visited
+li:hover
 {
-  color: #bdbdbd;
+font-weight: 500;
 }
-
 
 
  /* label focus color */
