@@ -185,6 +185,8 @@ function workoutPage()
   {
     exercise.push("BREAK")
   }
+  
+  
   let startingMinutes = exercise.length;
   let time = startingMinutes * 60;
   const coundownMinutes = document.querySelector('#countdown-minutes');
