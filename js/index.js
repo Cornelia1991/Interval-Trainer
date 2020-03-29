@@ -6,6 +6,7 @@ const taskInput = document.querySelector('#task');
 const submitBtn = document.querySelector('.submit-task')
 const setsForm = document.querySelector('#sets-form');
 const setsInput = document.querySelector('#sets-input');
+const restInput = document.querySelector('#rest-input');
 const description = document.querySelector('.description');
 const suggestionsUI = document.querySelector('.suggestionsUI');
 const fulldescription = document.createElement('p');
@@ -44,7 +45,7 @@ function addTask(e)
 {
   if(taskInput.value ==='')
     {
-      M.toast({html: 'ADD A TASK', classes: 'red'})
+      M.toast({html: 'ADD A TASK', classes: 'red darken-4'})
     }
     else
     {
@@ -59,7 +60,7 @@ function addTask(e)
       //Add class
       link.className = 'delete-item secondary-content';
       //Add remove icon
-      link.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+      link.innerHTML = '<i class="fas fa-trash-alt"></i>';
       //Append the link to the li
       li.appendChild(link);
       
@@ -83,7 +84,7 @@ function removeTask(e)
       if(confirm('Are You Sure?'))
       {
         e.target.parentElement.parentElement.remove();
-        M.toast({html: 'Deleted', classes: 'red lighten-2'})
+        M.toast({html: 'Deleted', classes: 'red darken-4'})
       }
     }
 }
@@ -118,9 +119,13 @@ function submitTask()
 //Submit amount of sets
 function setNumber()
 {
-  if(setsInput.value ==='')
+  if(setsInput.value ==='' )
   {
-    M.toast({html: 'Enter Amount of Sets', classes: 'red lighten-2'});
+    M.toast({html: 'Enter Amount of Sets', classes: 'red darken-4'});
+  }
+  else if(restInput.value ==='' )
+  {
+    M.toast({html: 'Enter Amount of Rest', classes: 'red darken-4'});
   }
   else
   {
@@ -138,9 +143,10 @@ function addSuggestion(e)
   //only select the help links
   if (e.target.className == 'help')
   {
+    M.toast({html: 'Added!', classes: 'green darken-1'});
     //Add item to list
-    if(confirm('Add To Excise List?'))
-    {
+    // if(confirm('Add To Excise List?'))
+    // {
     //Create li element
     const li = document.createElement('li');
     //Add class
@@ -152,12 +158,12 @@ function addSuggestion(e)
     //Add class
     link.className = 'delete-item secondary-content';
     //Add remove icon
-    link.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+    link.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
     //Append the link to the li
     li.appendChild(link);
     //Append li to ul on dom
     taskList.appendChild(li);
-    }
+    //}
   }
 }
 
@@ -173,8 +179,12 @@ function addSuggestion(e)
 function workoutPage()
 {
   let exercise = submitTask();
-  exercise.push('BREAK');
   let sets = setsInput.value;
+  let rest = restInput.value;
+  for (let i = 0; i < rest; i++)
+  {
+    exercise.push("BREAK")
+  }
   let startingMinutes = exercise.length;
   let time = startingMinutes * 60;
   const coundownMinutes = document.querySelector('#countdown-minutes');
@@ -193,7 +203,6 @@ function workoutPage()
   let next = 0;
   let currentSet = 1;
   let lastSet = false;
-  
   coundownMinutes.innerHTML= startingMinutes;
 
 
@@ -280,15 +289,15 @@ function workoutPage()
     else if (next_exercise === "BREAK")
     {
       exerciseName.innerHTML = 'REST';
-      timeCardMin.classList.replace('teal', 'grey');
-      timeCardSec.classList.replace('teal', 'grey');
+      timeCardMin.classList.replace('darken-4', 'darken-1');
+      timeCardSec.classList.replace('darken-4', 'darken-1');
       setCountUI.classList.add('hide');
     }
     else if(next_exercise !== "BREAK")
     {
     exerciseName.innerHTML = next_exercise;
-    timeCardMin.classList.replace('grey', 'teal');
-    timeCardSec.classList.replace('grey', 'teal');
+    timeCardMin.classList.replace('darken-1', 'darken-4');
+    timeCardSec.classList.replace('darken-1', 'darken-4');
     setCountUI.classList.remove('hide');
     }
     else

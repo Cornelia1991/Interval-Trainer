@@ -25,11 +25,12 @@
             <div id="main" class="card">
               <div class="card-content">
                 <div class="row">
-                  <div class="col s10"><span class="card-title">HITT Workout</span>
-                    <p class="card-p">High Intensity Tnterval training  is a form of interval training, a cardiovascular exercise strategy alternating short periods of intense anaerobic exercise with less intense recovery periods, until too exhausted to continue. Though there is no universal HIIT session duration, these intense workouts typically last under 30 minutes, with times varying based on a participant's current fitness level.</p></div>
+                  <div class="col s10"><span class="card-title amber-text accent-4-text">HITT Workout</span>
+                    <p class="card-p">High Intensity Tnterval training  is a form of interval training, a cardiovascular exercise strategy alternating short periods of intense anaerobic exercise with less intense recovery periods, until too exhausted to continue. Though there is no universal HIIT session duration, these intense workouts typically last under 30 minutes, with times varying based on a participant's current fitness level.</p>
+                  </div>
                   <div class="col s2">
                     <!-- Modal Structure -->
-                    <a class="btn-floating btn-small waves-effect waves-light indigo darken-2 modal-trigger secondary-content" href="#terms"><i class="material-icons">add</i></a>
+                    <a class="btn-floating btn-small waves-effect waves-light modal-trigger secondary-content grey darken-4" href="#terms"><i class="material-icons">add</i></a>
 
                     <div id="terms" class="modal">
                       <div class="modal-content">
@@ -109,17 +110,16 @@
                   <form href="#none" id="task-form">
                     <div class="input-field col s12">
                       <input type="text" name="task" id="task" type="submit">
-                      <label for="task">New Exercise</label>
+                      <label  for="task">New Exercise</label>
                     </div>
-                      <input  type="submit" value="Add" class="btn indigo darken-4">
+                      <input  type="submit" value="Add" class="btn amber accent-3">
                   </form>
                 </div>
               </div>
                 <div class="card-action">
                 <h5 id="task-type">Exercises</h5>
                   <div class="input-field col s12">
-                    <!-- <input type="text" name="filter" id="filter">
-                    <label for="filter">Filter Workout</label> -->
+                    <h6 class="grey-text darken-3-text">Each Exercise 1 Minute - Add Exercise Mutiple Times for Addtional Minutes</h6>
                  </div>
                 <ul class="collection" onclick="removeTask()">
                 </ul>
@@ -132,17 +132,23 @@
 
                   <form id="sets-form">
                     <div class="row">
-                      <div class="col s12">
+                      <div class="col s6">
                         <div class="input-field inline">
                           <input id="sets-input" type="number" min="1" name="sets">
                           <label for="sets">Number of Sets</label>
                         </div>
                       </div>
+                      <div class="col s6">
+                        <div class="input-field inline">
+                          <input id="rest-input" type="number" min="0" name="rest">
+                          <label for="rest">Minutes of Rest Between Sets</label>
+                        </div>
+                      </div>
                     </div>
                   </form>
                 </div>
-                  <a href="#" onclick="clearTask()" class="clear-task btn red lighten-2">Clear All</a>
-                  <a onclick="submitTask();setNumber()" type="button" class="submit-task btn green lighten-1">Submit</a>
+                  <a href="#" onclick="clearTask()" class="clear-task btn grey darken-4">Clear All</a>
+                  <a onclick="submitTask();setNumber()" type="button" class="submit-task btn green darken-1">Submit</a>
               </div>
             </div>
           </div>
@@ -152,38 +158,38 @@
 <!-- Workout -->
 
 <div class="container-workout w3-container container center-align hide" id="workout-timer">
-  <h1 class="teal-text exercise-name w3-center w3-animate-right" id="exercise-name">Exercise</h1>
-    <div class="progress red lighten-5 valign center-block">
-      <div class="determinate green lighten-1"></div>
+  <h1 class="grey-text text-darken-4 exercise-name w3-center w3-animate-right" id="exercise-name" >Exercise</h1>
+    <div class="progress amber lighten-4 valign center-block">
+      <div class="determinate amber accent-3"></div>
     </div>
-    <h4 class="teal-text set-count"></h4>
+    <h4 class=" set-count orange-text darken-3-text"></h4>
     <div class="row timer">
       <div class="col s12 l6">
-        <div  id="time-card-1" class="card teal lighten-2">
+        <div  id="time-card-1" class="card grey darken-4">
           <div class="card-content white-text">
             <span class="card-title"><h1 class="time-title">Minutes</h1></span>
-            <h1 class="time-number" id="countdown-minutes"></h1>
+            <h1 class="time-number amber-text accent-4-text" id="countdown-minutes">0</h1>
           </div>
         </div>
       </div>
       <div class="col s12 l6">
-        <div id="time-card-2" class="card teal lighten-2">
+        <div id="time-card-2" class="card grey darken-4">
           <div class="card-content white-text">
             <span class="card-title"><h1 class="time-title">Seconds</h1></span>
-            <h1 class="time-number" id="countdown-seconds">00</h1>
+            <h1 class="time-number amber-text accent-4-text" id="countdown-seconds">00</h1>
           </div>
         </div>
       </div>
     </div>
       <div class="row btn-row"  id="bottom">
       <div class="btn-col col s12 m4">
-        <a class="waves-effect green lighten-1 waves-light btn-small" id="start-btn"><i class="material-icons right">play_arrow</i>Start</a>
+        <a class="waves-effect green darken-1 waves-light btn-small" id="start-btn"><i class="material-icons right">play_arrow</i>Start</a>
       </div>
       <div class="btn-col col s12 m4">
-        <a class="waves-effect yellow lighten-1 waves-light btn-small" id="pause-btn"><i class="material-icons right">pause</i>Pause</a>
+        <a class="waves-effect yellow darken-1 waves-light btn-small" id="pause-btn"><i class="material-icons right">pause</i>Pause</a>
       </div>
       <div class="btn-col col s12 m4">
-        <a class="waves-effect red lighten-1 waves-light btn-small" href="home.html"><i class="material-icons right" id="quit-btn">close</i>Quit</a>
+        <a class="waves-effect red darken-1 waves-light btn-small" href="home.html"><i class="material-icons right" id="quit-btn">close</i>Quit</a>
       </div>
     </div>
 </div>
