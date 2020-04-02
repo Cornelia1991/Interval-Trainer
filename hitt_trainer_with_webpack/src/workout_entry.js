@@ -54,7 +54,7 @@ function addTask(e) {
     //Add class
     link.className = "delete-item secondary-content";
     //Add remove icon
-    link.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    link.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
     //Append the link to the li
     li.appendChild(link);
 
@@ -120,9 +120,6 @@ function addSuggestion(e) {
   //only select the help links
   if (e.target.className == "help") {
     M.toast({ html: "Added!", classes: "green darken-1" });
-    //Add item to list
-    // if(confirm('Add To Excise List?'))
-    // {
     //Create li element
     const li = document.createElement("li");
     //Add class
